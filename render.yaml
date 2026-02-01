@@ -3,7 +3,7 @@ services:
     name: ai-finance-platform
     env: node
     plan: free
-    buildCommand: npm install && npx prisma generate && npm run build
+    buildCommand: npm install --legacy-peer-deps && npx prisma generate && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
