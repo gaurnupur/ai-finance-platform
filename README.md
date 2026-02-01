@@ -1,9 +1,43 @@
-# Full Stack AI Fianace Platform with Next JS, Supabase, Tailwind, Prisma, Inngest, ArcJet, Shadcn UI Tutorial 🔥🔥
-## https://youtu.be/egS6fnZAdzk
+# AI Finance Platform - Welth
 
-<img width="1470" alt="Screenshot 2024-12-10 at 9 45 45 AM" src="https://github.com/user-attachments/assets/1bc50b85-b421-4122-8ba4-ae68b2b61432">
+An AI-powered financial management platform built with Next.js that helps you track, analyze, and optimize your spending with real-time insights.
 
-### Make sure to create a `.env` file with following variables -
+## Features
+
+- 🤖 **AI-Powered Receipt Scanning** - Extract transaction data from receipts using Google Gemini AI
+- 📊 **Advanced Analytics** - Interactive charts and spending insights
+- 💳 **Multi-Account Support** - Manage multiple bank accounts and credit cards
+- 📱 **Responsive Design** - Works seamlessly on desktop and mobile
+- 🔒 **Secure Authentication** - Powered by Clerk
+- 📧 **Email Notifications** - Budget alerts and transaction confirmations
+- 🛡️ **Security Protection** - Rate limiting and bot protection with ArcJet
+
+## Tech Stack
+
+- **Frontend**: Next.js 15, React 19, Tailwind CSS, Shadcn UI
+- **Backend**: Prisma ORM, SQLite/PostgreSQL
+- **Authentication**: Clerk
+- **AI**: Google Gemini AI
+- **Email**: Resend
+- **Security**: ArcJet
+- **Charts**: Recharts
+- **Deployment**: Vercel
+
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/gaurnupur/ai-finance-platform.git
+cd ai-finance-platform
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables:
+Create a `.env` file with the following variables:
 
 ```
 DATABASE_URL=
@@ -22,3 +56,24 @@ RESEND_API_KEY=
 
 ARCJET_KEY=
 ```
+
+4. Run database migrations:
+```bash
+npx prisma migrate dev
+```
+
+5. Start the development server:
+```bash
+npm run dev
+```
+
+## Deployment
+
+This project is optimized for deployment on Vercel:
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy automatically
+
+## Made with 💗 by Nupur
