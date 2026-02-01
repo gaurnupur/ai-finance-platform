@@ -3,9 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -26,7 +25,7 @@ model User {
 model Account {
   id           String        @id @default(uuid())
   name         String
-  type         AccountType
+  type         String        // "CURRENT" or "SAVINGS"
   balance      Decimal       @default(0) // will ask inital balance while creating an account
   isDefault    Boolean       @default(false)
   userId       String
@@ -41,17 +40,17 @@ model Account {
 
 model Transaction {
   id                String            @id @default(uuid())
-  type             TransactionType
+  type             String            // "INCOME" or "EXPENSE"
   amount           Decimal
   description      String?
   date             DateTime
   category         String           
   receiptUrl       String?
   isRecurring      Boolean           @default(false)
-  recurringInterval RecurringInterval? // Only used if isRecurring is true
+  recurringInterval String?          // "DAILY", "WEEKLY", "MONTHLY", "YEARLY"
   nextRecurringDate DateTime?         // Next date for recurring transaction
   lastProcessed    DateTime?         // Last time this recurring transaction was processed
-  status           TransactionStatus  @default(COMPLETED)
+  status           String            @default("COMPLETED") // "PENDING", "COMPLETED", "FAILED"
   userId           String
   user             User              @relation(fields: [userId], references: [id], onDelete: Cascade)
   accountId        String
@@ -76,27 +75,4 @@ model Budget {
 
   @@index([userId])
   @@map("budgets")
-}
-
-enum TransactionType {
-  INCOME
-  EXPENSE
-}
-
-enum AccountType {
-  CURRENT
-  SAVINGS
-}
-
-enum TransactionStatus {
-  PENDING
-  COMPLETED
-  FAILED
-}
-
-enum RecurringInterval {
-  DAILY
-  WEEKLY
-  MONTHLY
-  YEARLY
 }
