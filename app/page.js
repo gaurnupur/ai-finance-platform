@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   featuresData,
   howItWorksData,
@@ -55,7 +54,7 @@ function useStaggerReveal(count) {
 
 /* ── Animated counter ── */
 function Counter({ value }) {
-  const [count, setCount] = useState("0");
+  const [_count, setCount] = useState("0");
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
@@ -327,7 +326,7 @@ export default function LandingPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Loved by <span className="gradient-text-blue">50,000+ users</span>
             </h2>
-            <p className="text-gray-400 max-w-xl mx-auto">Don't take our word for it — hear from the people who use Welth every day.</p>
+            <p className="text-gray-400 max-w-xl mx-auto">Don&apos;t take our word for it — hear from the people who use Welth every day.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {testimonialsData.map((t, i) => (
@@ -401,12 +400,12 @@ export default function LandingPage() {
             <span className="gradient-text-blue">financial future</span>
           </h2>
           <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-            Join 50,000+ users who've transformed how they manage money. Start free, upgrade when you're ready.
+            Join 50,000+ users who&apos;ve transformed how they manage money. Start free, upgrade when you&apos;re ready.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/sign-up">
               <button className="group flex items-center gap-2 px-10 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold text-base transition-all duration-300 shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 animate-pulse-glow">
-                Get Started — It's Free
+                Get Started — It&apos;s Free
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </Link>

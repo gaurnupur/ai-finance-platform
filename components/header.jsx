@@ -4,11 +4,11 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   PenBox, LayoutDashboard, Menu, X, TrendingUp, ChevronDown,
-  BarChart3, Receipt, PieChart, Shield, Bell, Zap, CreditCard,
+  BarChart3, Receipt, PieChart, Bell, Zap, CreditCard,
   Globe, Target, BookOpen, HelpCircle, MessageSquare, Star,
   ArrowRight, Sparkles,
 } from "lucide-react";
-import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const productLinks = [
   { icon: <BarChart3 className="w-4 h-4" />, label: "Analytics", desc: "AI-powered spending insights", href: "#features", color: "text-blue-400" },
