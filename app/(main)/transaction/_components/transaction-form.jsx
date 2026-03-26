@@ -135,7 +135,7 @@ export function AddTransactionForm({
 
       {/* Type */}
       <div className="space-y-2">
-        <label className="text-sm font-medium">Type</label>
+        <label className="text-sm font-medium text-gray-200">Type</label>
         <Select
           onValueChange={(value) => setValue("type", value)}
           defaultValue={type}
@@ -156,7 +156,7 @@ export function AddTransactionForm({
       {/* Amount and Account */}
       <div className="grid gap-6 md:grid-cols-2">
         <div className="space-y-2">
-          <label className="text-sm font-medium">Amount</label>
+          <label className="text-sm font-medium text-gray-200">Amount</label>
           <Input
             type="number"
             step="0.01"
@@ -169,7 +169,7 @@ export function AddTransactionForm({
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium">Account</label>
+          <label className="text-sm font-medium text-gray-200">Account</label>
           <Select
             onValueChange={(value) => setValue("accountId", value)}
             defaultValue={getValues("accountId")}
@@ -201,7 +201,7 @@ export function AddTransactionForm({
 
       {/* Category */}
       <div className="space-y-2">
-        <label className="text-sm font-medium">Category</label>
+        <label className="text-sm font-medium text-gray-200">Category</label>
         <Select
           onValueChange={(value) => setValue("category", value)}
           defaultValue={getValues("category")}
@@ -224,21 +224,21 @@ export function AddTransactionForm({
 
       {/* Date */}
       <div className="space-y-2">
-        <label className="text-sm font-medium">Date</label>
+        <label className="text-sm font-medium text-gray-200">Date</label>
         <Popover>
           <PopoverTrigger asChild>
             <Button
               variant="outline"
               className={cn(
-                "w-full pl-3 text-left font-normal",
-                !date && "text-muted-foreground"
+                "w-full pl-3 text-left font-normal border border-white/10 bg-white/5 text-white hover:bg-white/10 hover:text-white",
+                !date && "text-gray-400"
               )}
             >
               {date ? format(date, "PPP") : <span>Pick a date</span>}
               <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="start">
+          <PopoverContent className="w-auto p-0 bg-[#0d1526] border border-white/10 rounded-xl" align="start">
             <Calendar
               mode="single"
               selected={date}
@@ -257,7 +257,7 @@ export function AddTransactionForm({
 
       {/* Description */}
       <div className="space-y-2">
-        <label className="text-sm font-medium">Description</label>
+        <label className="text-sm font-medium text-gray-200">Description</label>
         <Input placeholder="Enter description" {...register("description")} />
         {errors.description && (
           <p className="text-sm text-red-500">{errors.description.message}</p>
@@ -265,10 +265,10 @@ export function AddTransactionForm({
       </div>
 
       {/* Recurring Toggle */}
-      <div className="flex flex-row items-center justify-between rounded-lg border p-4">
+      <div className="flex flex-row items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4">
         <div className="space-y-0.5">
-          <label className="text-base font-medium">Recurring Transaction</label>
-          <div className="text-sm text-muted-foreground">
+          <label className="text-base font-medium text-white">Recurring Transaction</label>
+          <div className="text-sm text-gray-400">
             Set up a recurring schedule for this transaction
           </div>
         </div>
@@ -281,7 +281,7 @@ export function AddTransactionForm({
       {/* Recurring Interval */}
       {isRecurring && (
         <div className="space-y-2">
-          <label className="text-sm font-medium">Recurring Interval</label>
+          <label className="text-sm font-medium text-gray-200">Recurring Interval</label>
           <Select
             onValueChange={(value) => setValue("recurringInterval", value)}
             defaultValue={getValues("recurringInterval")}
