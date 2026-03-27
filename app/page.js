@@ -54,7 +54,7 @@ function useStaggerReveal(count) {
 
 /* ── Animated counter ── */
 function Counter({ value }) {
-  const [_count, setCount] = useState("0");
+  const [displayValue, setCount] = useState("0");
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
@@ -65,7 +65,7 @@ function Counter({ value }) {
     obs.observe(el);
     return () => obs.disconnect();
   }, [value]);
-  return <span ref={ref}>{count}</span>;
+  return <span ref={ref}>{displayValue}</span>;
 }
 
 /* ── FAQ Item ── */
